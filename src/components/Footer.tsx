@@ -1,13 +1,14 @@
 import React from 'react';
-import { Heart, Users, Activity, Eye, Compass, Feather } from 'lucide-react';
+import { Heart, Users, Activity, Eye, Compass, Feather, Github } from 'lucide-react';
 import { VisitorStats } from '../types';
 
 interface FooterProps {
   stats: VisitorStats;
   onOpenBloggerCode: () => void;
+  onOpenGitHubDeploy?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ stats, onOpenBloggerCode }) => {
+export const Footer: React.FC<FooterProps> = ({ stats, onOpenBloggerCode, onOpenGitHubDeploy }) => {
   return (
     <footer className="mt-20 border-t-2 border-rose-200/70 dark:border-slate-800 bg-gradient-to-b from-rose-50/60 via-amber-50/40 to-pink-50/70 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 py-12 transition-colors duration-300 relative overflow-hidden isolate w-full max-w-full">
       
@@ -95,6 +96,16 @@ export const Footer: React.FC<FooterProps> = ({ stats, onOpenBloggerCode }) => {
             >
               <span>✦ Bạn là người thiết kế web? Lấy mã Blogger tại đây</span>
             </button>
+
+            {onOpenGitHubDeploy && (
+              <button
+                onClick={onOpenGitHubDeploy}
+                className="mt-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 hover:underline flex items-center gap-1.5"
+              >
+                <Github className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400" />
+                <span>Hướng dẫn đăng tải web lên GitHub Pages (Miễn phí)</span>
+              </button>
+            )}
           </div>
 
           {/* Col 3: BỘ ĐẾM NGƯỜI TRUY CẬP (Visitor counter) */}

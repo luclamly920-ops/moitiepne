@@ -14,6 +14,7 @@ import { ChapterReaderModal } from './components/ChapterReaderModal';
 import { PasswordHintSection } from './components/PasswordHintSection';
 import { OtherSection } from './components/OtherSection';
 import { BloggerExporterModal } from './components/BloggerExporterModal';
+import { GitHubDeployModal } from './components/GitHubDeployModal';
 import { SearchModal } from './components/SearchModal';
 import { Footer } from './components/Footer';
 import { SakuraCanvas } from './components/SakuraCanvas';
@@ -41,6 +42,7 @@ export default function App() {
   const [readingState, setReadingState] = useState<{ novel: Novel; chapter: Chapter } | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [bloggerModalOpen, setBloggerModalOpen] = useState(false);
+  const [githubDeployModalOpen, setGithubDeployModalOpen] = useState(false);
 
   // Handle Dark mode class on html and body elements
   useEffect(() => {
@@ -128,6 +130,7 @@ export default function App() {
         sakuraEnabled={sakuraEnabled}
         onToggleSakura={() => setSakuraEnabled(!sakuraEnabled)}
         onOpenBloggerCode={() => setBloggerModalOpen(true)}
+        onOpenGitHubDeploy={() => setGithubDeployModalOpen(true)}
       />
 
       {/* Main Container */}
@@ -348,10 +351,19 @@ export default function App() {
         />
       )}
 
+      {/* GitHub Deploy Guide Modal */}
+      {githubDeployModalOpen && (
+        <GitHubDeployModal
+          isOpen={githubDeployModalOpen}
+          onClose={() => setGithubDeployModalOpen(false)}
+        />
+      )}
+
       {/* Footer */}
       <Footer
         stats={INITIAL_VISITOR_STATS}
         onOpenBloggerCode={() => setBloggerModalOpen(true)}
+        onOpenGitHubDeploy={() => setGithubDeployModalOpen(true)}
       />
 
     </div>

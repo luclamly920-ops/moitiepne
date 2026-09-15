@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Sun, Moon, Sparkles, BookOpen, KeyRound, Heart, Home, Code2, Music } from 'lucide-react';
+import { Search, Sun, Moon, Sparkles, BookOpen, KeyRound, Heart, Home, Code2, Music, Github } from 'lucide-react';
 
 interface HeaderNavProps {
   currentTab: string;
@@ -10,6 +10,7 @@ interface HeaderNavProps {
   sakuraEnabled: boolean;
   onToggleSakura: () => void;
   onOpenBloggerCode: () => void;
+  onOpenGitHubDeploy: () => void;
 }
 
 export const HeaderNav: React.FC<HeaderNavProps> = ({
@@ -21,6 +22,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   sakuraEnabled,
   onToggleSakura,
   onOpenBloggerCode,
+  onOpenGitHubDeploy,
 }) => {
   const [isPlayingSound, setIsPlayingSound] = useState(false);
 
@@ -115,6 +117,15 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
               <Code2 className="w-3.5 h-3.5 text-emerald-500" />
               <span>Mã Blogger</span>
             </button>
+
+            <button
+              onClick={onOpenGitHubDeploy}
+              title="Hướng dẫn đăng tải web lên GitHub Pages"
+              className="px-3 py-1.5 rounded-full text-xs font-semibold text-slate-800 dark:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-600 transition-all flex items-center gap-1.5 shadow-xs"
+            >
+              <Github className="w-3.5 h-3.5 text-slate-700 dark:text-slate-300" />
+              <span>Đăng web lên GitHub</span>
+            </button>
           </nav>
 
           {/* Action Buttons: Search, Theme Toggle, Blossom Breeze, Sound */}
@@ -208,6 +219,14 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
           >
             <Code2 className="w-3.5 h-3.5 text-emerald-500" />
             <span>Mã Blogger</span>
+          </button>
+
+          <button
+            onClick={onOpenGitHubDeploy}
+            className="px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap flex items-center gap-1.5 text-slate-800 dark:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-600 shrink-0 shadow-2xs"
+          >
+            <Github className="w-3.5 h-3.5 text-slate-700 dark:text-slate-300" />
+            <span>Đăng web lên GitHub</span>
           </button>
         </div>
       </div>
