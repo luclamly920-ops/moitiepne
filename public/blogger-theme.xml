@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5' name='viewport'/>
+  <title><data:blog.pageTitle/></title>
+  <b:include data='blog' name='all-head-content'/>
+
+  <!-- Google Fonts: Be Vietnam Pro, Lora, Playfair Display & Patrick Hand -->
+  <link href='https://fonts.googleapis.com' rel='preconnect'/>
+  <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+  <link href='https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400;1,600&amp;family=Patrick+Hand&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;display=swap' rel='stylesheet'/>
+
+  <b:skin><![CDATA[
+  /*
+  --------------------------------------------------------------------------
+  THEME BLOGGER: BETTER AND BETTER - MELLIFLUOUS NOVEL BLOG
+  Author: Mellifluous
+  Style: Thanh xuân vườn trường, mùa hè lãng mạn & hoa anh đào rơi
+  Hỗ trợ đầy đủ: Mobile, iPad/Tablet, Desktop, Dark Mode
+  --------------------------------------------------------------------------
+  */
+
+  :root {
+    --bg-main: #fffcf7;
+    --card-bg: #ffffff;
+    --text-main: #334155;
+    --text-heading: #1e293b;
+    --rose-primary: #e11d48;
+    --rose-accent: #f43f5e;
+    --rose-soft: #fff1f2;
+    --rose-border: #fecdd3;
+    --amber-soft: #fef3c7;
+    --border-soft: #f1f5f9;
+  }
+
+  [data-theme='dark'] {
+    --bg-main: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #cbd5e1;
+    --text-heading: #f8fafc;
+    --rose-primary: #fb7185;
+    --rose-accent: #fda4af;
+    --rose-soft: #881337;
+    --rose-border: #475569;
+    --amber-soft: #334155;
+    --border-soft: #334155;
+  }
+
+  *, ::before, ::after { box-sizing: border-box; }
+  html, body {
+    font-family: 'Be Vietnam Pro', -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    width: 100%;
+  }
+
+  /* TOP NAVIGATION HEADER */
+  .melli-header {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 2px solid var(--rose-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+  [data-theme='dark'] .melli-header {
+    background: rgba(15, 23, 42, 0.95);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    gap: 16px;
+  }
+  .blog-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .blog-logo-icon {
+    font-size: 24px;
+    background: #ffe4e6;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #fecdd3;
+  }
+  .blog-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #e11d48;
+    line-height: 1.2;
+  }
+  .blog-tagline {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 13px;
+    color: #b45309;
+  }
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .nav-link {
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid transparent;
+  }
+  [data-theme='dark'] .nav-link {
+    background: rgba(30, 41, 59, 0.5);
+  }
+  .nav-link:hover, .nav-link.active {
+    background: #ffe4e6;
+    color: #be123c;
+    border-color: #fecdd3;
+  }
+
+  .theme-toggle-btn {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  [data-theme='dark'] .theme-toggle-btn {
+    background: #334155;
+    border-color: #475569;
+    color: #fff;
+  }
+
+  /* HERO BANNER */
+  .hero-banner {
+    background: linear-gradient(135deg, #fff1f2 0%, #fef3c7 50%, #eff6ff 100%);
+    border: 2px solid var(--rose-border);
+    border-radius: 24px;
+    padding: 30px 24px;
+    margin: 24px 0;
+    box-shadow: 0 4px 20px rgba(244, 63, 94, 0.08);
+  }
+  [data-theme='dark'] .hero-banner {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--rose-primary);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .hero-author {
+    font-size: 18px;
+    font-weight: 600;
+    color: #881337;
+    margin-bottom: 2px;
+  }
+  [data-theme='dark'] .hero-author {
+    color: #fda4af;
+  }
+  .hero-quote {
+    font-family: 'Patrick Hand', cursive;
+    color: #b45309;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  [data-theme='dark'] .hero-quote {
+    color: #fde047;
+  }
+  .hero-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 800px;
+    color: var(--text-main);
+  }
+  .hero-notice {
+    display: inline-block;
+    background: #ffe4e6;
+    color: #9f1239;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 14px;
+    border: 1px solid #fecdd3;
+  }
+  [data-theme='dark'] .hero-notice {
+    background: #881337;
+    color: #fecdd3;
+    border-color: #9f1239;
+  }
+
+  /* 4 LETTERS NAVIGATION (Lá Thư Tình) */
+  .letters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .letter-card {
+    background: var(--card-bg);
+    border: 2px solid var(--rose-border);
+    border-radius: 20px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 160px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .letter-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(244, 63, 94, 0.15);
+    border-color: #f43f5e;
+  }
+  .letter-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .letter-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--rose-soft);
+    color: var(--rose-primary);
+  }
+  .letter-stamp {
+    font-size: 12px;
+    font-weight: 700;
+    background: #fff;
+    border: 1px dashed #f43f5e;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #e11d48;
+  }
+  [data-theme='dark'] .letter-stamp {
+    background: #0f172a;
+  }
+  .letter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 12px;
+    color: var(--text-heading);
+  }
+  .letter-desc {
+    font-size: 13px;
+    color: var(--text-main);
+    margin-top: 4px;
+  }
+
+  /* MAIN LAYOUT WITH SIDEBAR */
+  .main-layout {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .content-area {
+    flex: 1;
+    min-width: 0;
+  }
+  .sidebar-area {
+    width: 320px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 992px) {
+    .main-layout {
+      flex-direction: column;
+    }
+    .sidebar-area {
+      width: 100%;
+    }
+  }
+
+  /* POSTS / ARTICLES IN BLOGGER */
+  .post-card {
+    background: var(--card-bg);
+    border: 2px solid var(--rose-border);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  }
+  .post-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .post-title a {
+    text-decoration: none;
+    color: var(--text-heading);
+    transition: color 0.2s;
+  }
+  .post-title a:hover {
+    color: var(--rose-primary);
+  }
+  .post-body {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* CANVAS SAKURA PETALS */
+  #sakura-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99;
+  }
+
+  /* FOOTER */
+  .melli-footer {
+    border-top: 2px solid var(--rose-border);
+    padding: 32px 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(254, 205, 211, 0.2) 100%);
+    text-align: center;
+    font-size: 13px;
+  }
+  .footer-links {
+    margin-bottom: 12px;
+  }
+  .footer-links a {
+    color: var(--rose-primary);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 600;
+  }
+  ]]></b:skin>
+</head>
+
+<body>
+  <!-- Hiệu ứng cánh hoa anh đào rơi tự nhiên -->
+  <canvas id='sakura-canvas'></canvas>
+
+  <!-- THANH ĐIỀU HƯỚNG BLOGGER -->
+  <header class='melli-header'>
+    <div class='container header-inner'>
+      <a class='blog-logo' expr:href='data:blog.homepageUrl'>
+        <div class='blog-logo-icon'>🌸</div>
+        <div>
+          <div class='blog-name'>better and better</div>
+          <div class='blog-tagline'>✦ mellifluous novel blog ✦</div>
+        </div>
+      </a>
+
+      <!-- MENU TỰ ĐỘNG KHỚP ĐƯỜNG DẪN CỦA BLOGGER -->
+      <nav class='nav-menu'>
+        <a class='nav-link' expr:href='data:blog.homepageUrl'>Trang chủ</a>
+        <a class='nav-link' expr:href='data:blog.homepageUrl + "search/label/Truyện đã hoàn"'>Truyện đã hoàn</a>
+        <a class='nav-link' expr:href='data:blog.homepageUrl + "search/label/Truyện chưa hoàn"'>Truyện chưa hoàn</a>
+        <a class='nav-link' expr:href='data:blog.homepageUrl + "p/password.html"'>Password</a>
+        <a class='nav-link' expr:href='data:blog.homepageUrl + "p/tam-su.html"'>Tâm sự / Lưu bút</a>
+        
+        <button class='theme-toggle-btn' id='theme-btn' onclick='toggleTheme()'>🌙 Giao diện</button>
+      </nav>
+    </div>
+  </header>
+
+  <div class='container'>
+    <!-- HERO INTRO: "better and better", "Xin chào, tớ là Mellifluous..." -->
+    <section class='hero-banner'>
+      <div class='hero-title'>better and better</div>
+      <div class='hero-author'>Xin chào, tớ là Mellifluous</div>
+      <div class='hero-quote'>━ Một chiếc thuyền nhỏ lênh đênh ngược gió</div>
+      <p class='hero-desc'>
+        Đây là trang phụ của tớ, đăng linh ta linh tinh. Đăng truyện song song với trang chính, cập nhật muộn và không thường xuyên, phòng ngừa trang chính bị khóa. Truyện trong nhà được chuyển ngữ dưới sự cho phép của tác giả với mục đích phi lợi nhuận.
+      </p>
+      <div class='hero-notice'>
+        🔒 Quy ước mật khẩu: Chữ thường, không hoa, không dấu, viết liền
+      </div>
+    </section>
+
+    <!-- 4 LÁ THƯ TÌNH ĐIỀU HƯỚNG TRUYỆN BLOGGER (Tự động liên kết URL Blogger) -->
+    <section class='letters-grid'>
+      <a class='letter-card' expr:href='data:blog.homepageUrl + "search/label/Truyện đã hoàn"'>
+        <div class='letter-top'>
+          <span class='letter-badge'>Thư số 01</span>
+          <span class='letter-stamp'>🌸 HOA</span>
+        </div>
+        <div>
+          <div class='letter-title'>Truyện đã hoàn thành</div>
+          <div class='letter-desc'>Những bản tình ca mùa hè đã trọn vẹn, sẵn sàng để cậu đọc một mạch.</div>
+        </div>
+      </a>
+
+      <a class='letter-card' expr:href='data:blog.homepageUrl + "search/label/Truyện chưa hoàn"'>
+        <div class='letter-top'>
+          <span class='letter-badge'>Thư số 02</span>
+          <span class='letter-stamp'>🍃 GIÓ</span>
+        </div>
+        <div>
+          <div class='letter-title'>Truyện chưa hoàn thành</div>
+          <div class='letter-desc'>Đang trong quá trình chuyển ngữ và cập nhật định kỳ mỗi tuần.</div>
+        </div>
+      </a>
+
+      <a class='letter-card' expr:href='data:blog.homepageUrl + "p/password.html"'>
+        <div class='letter-top'>
+          <span class='letter-badge'>Thư số 03</span>
+          <span class='letter-stamp'>🔑 MẬT MÃ</span>
+        </div>
+        <div>
+          <div class='letter-title'>Gợi ý Mật khẩu (Password)</div>
+          <div class='letter-desc'>Bảo vệ công sức phi thương mại. Câu hỏi gợi ý chi tiết từng chương.</div>
+        </div>
+      </a>
+
+      <a class='letter-card' expr:href='data:blog.homepageUrl + "p/tam-su.html"'>
+        <div class='letter-top'>
+          <span class='letter-badge'>Thư số 04</span>
+          <span class='letter-stamp'>💌 LƯU BÚT</span>
+        </div>
+        <div>
+          <div class='letter-title'>Một số mục khác &amp; FAQ</div>
+          <div class='letter-desc'>Góc tâm sự nhỏ, lưu bút mùa hè và giải đáp những câu hỏi thường gặp.</div>
+        </div>
+      </a>
+    </section>
+
+    <!-- MAIN CONTENT & SIDEBAR -->
+    <div class='main-layout'>
+      <!-- BÀI ĐĂNG BLOGGER: WIDGET BLOG1 -->
+      <main class='content-area'>
+        <b:section class='main' id='main' showaddelement='yes'>
+          <b:widget id='Blog1' locked='true' title='Bài đăng trên Blog' type='Blog' version='2'>
+            <b:includable id='main' var='top'>
+              <b:loop values='data:posts' var='post'>
+                <article class='post-card'>
+                  <h2 class='post-title'>
+                    <a expr:href='data:post.url'><data:post.title/></a>
+                  </h2>
+                  <div style='font-size: 12px; color: #94a3b8; margin-bottom: 12px;'>
+                    📅 Ngày đăng: <data:post.dateHeader/>
+                  </div>
+                  <div class='post-body'>
+                    <data:post.body/>
+                  </div>
+                </article>
+              </b:loop>
+            </b:includable>
+          </b:widget>
+        </b:section>
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside class='sidebar-area'>
+        <div class='post-card'>
+          <h3 style='font-family: "Playfair Display", serif; font-size: 18px; color: #e11d48; margin-bottom: 8px;'>
+            🌸 Chủ Nhà Mellifluous
+          </h3>
+          <p style='font-size: 13px; line-height: 1.7; color: var(--text-main);'>
+            Ghé thăm bến đỗ nhỏ của tớ. Nơi lưu giữ những mẩu chuyện thanh xuân, học đường và tình yêu ngọt ngào thời áo trắng.
+          </p>
+        </div>
+
+        <div class='post-card'>
+          <h3 style='font-family: "Playfair Display", serif; font-size: 18px; color: #e11d48; margin-bottom: 8px;'>
+            📚 Thể Loại / Nhãn Truyện
+          </h3>
+          <ul style='list-style: none; font-size: 13px; line-height: 2;'>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Truyện đã hoàn"' style='color: var(--rose-primary); text-decoration: none;'>🌸 Truyện đã hoàn</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "search/label/Truyện chưa hoàn"' style='color: var(--rose-primary); text-decoration: none;'>🍃 Truyện chưa hoàn</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "p/password.html"' style='color: var(--rose-primary); text-decoration: none;'>🔑 Gợi ý Mật khẩu</a></li>
+            <li><a expr:href='data:blog.homepageUrl + "p/tam-su.html"' style='color: var(--rose-primary); text-decoration: none;'>💌 Tâm sự &amp; Lưu bút</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class='melli-footer'>
+    <div class='container'>
+      <div class='footer-links'>
+        <a href='https://facebook.com' rel='noreferrer' target='_blank'>Facebook</a>
+        •
+        <a href='https://wordpress.com' rel='noreferrer' target='_blank'>WordPress</a>
+        •
+        <a href='https://wattpad.com' rel='noreferrer' target='_blank'>Wattpad</a>
+      </div>
+      <div>© 2026 better and better - Mellifluous. Bản chuyển ngữ phi lợi nhuận.</div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT HỖ TRỢ THEME & SAKURA CANVAS -->
+  <script type='text/javascript'>
+    //<![CDATA[
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('melli_theme', next);
+      var btn = document.getElementById('theme-btn');
+      if (btn) btn.innerText = next === 'dark' ? '☀️ Giao diện sáng' : '🌙 Giao diện tối';
+    }
+
+    (function initTheme() {
+      var saved = localStorage.getItem('melli_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+      var btn = document.getElementById('theme-btn');
+      if (btn) btn.innerText = saved === 'dark' ? '☀️ Giao diện sáng' : '🌙 Giao diện tối';
+    })();
+
+    (function initSakura() {
+      var canvas = document.getElementById('sakura-canvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var width = canvas.width = window.innerWidth;
+      var height = canvas.height = window.innerHeight;
+      window.addEventListener('resize', function() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      var petals = [];
+      for (var i = 0; i < 25; i++) {
+        petals.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: Math.random() * 7 + 6,
+          speedY: Math.random() * 1.2 + 0.8,
+          speedX: Math.random() * 0.8 - 0.4,
+          angle: Math.random() * 360,
+          spin: Math.random() * 2 - 1,
+          alpha: Math.random() * 0.5 + 0.3
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        for (var i = 0; i < petals.length; i++) {
+          var p = petals[i];
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.angle * Math.PI) / 180);
+          ctx.beginPath();
+          ctx.fillStyle = 'rgba(251, 207, 232, ' + p.alpha + ')';
+          ctx.ellipse(0, 0, p.size, p.size / 2, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+
+          p.y += p.speedY;
+          p.x += p.speedX;
+          p.angle += p.spin;
+          if (p.y > height) { p.y = -10; p.x = Math.random() * width; }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+    //]]>
+  </script>
+</body>
+</html>

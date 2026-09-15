@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>better and better - Mellifluous Novel Blog (Blogger HTML)</title>
+  
+  <!-- Google Fonts: Be Vietnam Pro, Lora, Playfair Display & Patrick Hand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-main: #fffcf7;
+      --card-bg: #ffffff;
+      --text-main: #334155;
+      --text-heading: #1e293b;
+      --rose-primary: #e11d48;
+      --rose-soft: #fff1f2;
+      --rose-border: #fecdd3;
+    }
+
+    [data-theme='dark'] {
+      --bg-main: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #cbd5e1;
+      --text-heading: #f8fafc;
+      --rose-primary: #fb7185;
+      --rose-soft: #881337;
+      --rose-border: #475569;
+    }
+
+    *, ::before, ::after { box-sizing: border-box; }
+    html, body {
+      font-family: 'Be Vietnam Pro', -apple-system, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+
+    /* HEADER */
+    .melli-header-box {
+      text-align: center;
+      padding-bottom: 24px;
+      border-bottom: 2px dotted #fda4af;
+      margin-bottom: 28px;
+    }
+
+    .melli-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+
+    .melli-logo-badge {
+      font-size: 26px;
+      background: #ffe4e6;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #fecdd3;
+    }
+
+    .melli-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #e11d48;
+      line-height: 1.2;
+    }
+
+    .melli-tagline {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 16px;
+      color: #b45309;
+      margin-bottom: 8px;
+    }
+
+    .melli-intro-title {
+      font-size: 19px;
+      font-weight: 600;
+      color: #881337;
+      margin-top: 6px;
+    }
+    [data-theme='dark'] .melli-intro-title { color: #fda4af; }
+
+    .melli-intro-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 28px;
+      border: 2px solid var(--rose-border);
+      box-shadow: 0 4px 20px rgba(244, 63, 94, 0.06);
+      margin-bottom: 30px;
+    }
+
+    .melli-notice {
+      display: inline-block;
+      background: #ffe4e6;
+      color: #9f1239;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 12px;
+      border: 1px solid #fecdd3;
+    }
+    [data-theme='dark'] .melli-notice {
+      background: #881337;
+      color: #fecdd3;
+      border-color: #9f1239;
+    }
+
+    /* 4 LETTERS NAVIGATION (Lá Thư Tình) */
+    .melli-letters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .melli-letter-btn {
+      background: var(--card-bg);
+      border: 2px solid var(--rose-border);
+      border-radius: 20px;
+      padding: 20px;
+      text-decoration: none;
+      color: var(--text-heading);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 150px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .melli-letter-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(244, 63, 94, 0.15);
+      border-color: #f43f5e;
+    }
+
+    .melli-stamp {
+      font-size: 11px;
+      font-weight: 700;
+      color: #e11d48;
+      background: var(--rose-soft);
+      padding: 3px 10px;
+      border-radius: 999px;
+      width: fit-content;
+      margin-bottom: 10px;
+    }
+
+    .melli-letter-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    .melli-letter-desc {
+      font-size: 13px;
+      color: var(--text-main);
+      margin-top: 4px;
+    }
+
+    /* PASSWORD CHECKER BOX */
+    .melli-pass-box {
+      background: var(--card-bg);
+      border: 2px solid #bae6fd;
+      border-radius: 24px;
+      padding: 26px;
+      margin: 30px 0;
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.06);
+    }
+    [data-theme='dark'] .melli-pass-box { border-color: #0369a1; }
+
+    .melli-pass-input-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .melli-pass-input {
+      flex: 1;
+      padding: 12px 16px;
+      font-size: 14px;
+      border-radius: 14px;
+      border: 1px solid #cbd5e1;
+      background: var(--card-bg);
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .melli-pass-btn {
+      background: #0284c7;
+      color: white;
+      border: none;
+      border-radius: 14px;
+      padding: 12px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .melli-pass-btn:hover { background: #0369a1; }
+
+    /* SAKURA CANVAS */
+    #sakura-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 99;
+    }
+
+    .melli-footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 2px solid var(--rose-border);
+      font-size: 13px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="sakura-canvas"></canvas>
+
+  <div class="container">
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 12px;">
+      <button onclick="toggleTheme()" id="theme-btn" style="padding: 6px 14px; border-radius: 999px; border: 1px solid #cbd5e1; background: var(--card-bg); color: var(--text-main); font-size: 12px; cursor: pointer; font-weight: 600;">
+        🌙 Chế độ tối
+      </button>
+    </div>
+
+    <!-- HEADER -->
+    <div class="melli-header-box">
+      <div class="melli-logo">
+        <div class="melli-logo-badge">🌸</div>
+        <div class="melli-title">better and better</div>
+      </div>
+      <div class="melli-tagline">✦ mellifluous novel blog ✦</div>
+      <div class="melli-intro-title">Xin chào, tớ là Mellifluous</div>
+      <div style="font-family: 'Patrick Hand', cursive; color: #b45309; font-size: 16px;">━ Một chiếc thuyền nhỏ lênh đênh ngược gió</div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="melli-intro-card">
+      <p style="margin-bottom: 10px;">
+        Đây là trang phụ của tớ, đăng linh ta linh tinh. Đăng truyện song song với trang chính, cập nhật muộn và không thường xuyên, phòng ngừa trang chính bị khóa.
+      </p>
+      <p style="margin-bottom: 10px;">
+        Truyện trong nhà được chuyển ngữ dưới sự cho phép của tác giả với mục đích phi lợi nhuận, sẽ có mật khẩu để đảm bảo công sức của tác giả lẫn dịch giả.
+      </p>
+      <div class="melli-notice">
+        🔒 Quy ước mật khẩu: Chữ thường, không hoa, không dấu, viết liền
+      </div>
+    </div>
+
+    <!-- 4 LÁ THƯ TÌNH - ĐƯỜNG DẪN CHUẨN BLOGGER -->
+    <div class="melli-letters">
+      <a href="/search/label/Truy%E1%BB%87n%20%C4%91%C3%A3%20ho%C3%A0n" class="melli-letter-btn">
+        <div class="melli-stamp">🌸 THƯ SỐ 01</div>
+        <div class="melli-letter-name">Truyện đã hoàn thành</div>
+        <div class="melli-letter-desc">Xem danh sách các bộ truyện ngôn tình thanh xuân đã hoàn trên Blogger</div>
+      </a>
+
+      <a href="/search/label/Truy%E1%BB%87n%20ch%C6%B0a%20ho%C3%A0n" class="melli-letter-btn">
+        <div class="melli-stamp">🍃 THƯ SỐ 02</div>
+        <div class="melli-letter-name">Truyện chưa hoàn thành</div>
+        <div class="melli-letter-desc">Các tác phẩm đang tiến hành chuyển ngữ và ra chương định kỳ</div>
+      </a>
+
+      <a href="/p/password.html" class="melli-letter-btn">
+        <div class="melli-stamp">🔑 THƯ SỐ 03</div>
+        <div class="melli-letter-name">Gợi ý Mật khẩu (Password)</div>
+        <div class="melli-letter-desc">Trang giải mã và câu hỏi gợi ý password bảo vệ các chương truyện</div>
+      </a>
+
+      <a href="/p/tam-su.html" class="melli-letter-btn">
+        <div class="melli-stamp">💌 THƯ SỐ 04</div>
+        <div class="melli-letter-name">Một số mục khác &amp; FAQ</div>
+        <div class="melli-letter-desc">Lưu bút mùa hè, tâm sự chủ nhà và giải đáp thắc mắc</div>
+      </a>
+    </div>
+
+    <!-- CÔNG CỤ CHECK MẬT KHẨU TƯƠNG TÁC -->
+    <div class="melli-pass-box">
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 20px; color: #0284c7; margin-bottom: 6px;">
+        🔍 Kiểm Tra Mật Khẩu Nhanh (Password Resolver)
+      </h3>
+      <p style="font-size: 13px; color: var(--text-main);">
+        Nhập thử đáp án của cậu vào ô dưới đây để kiểm tra xem đã chính xác trước khi mở khóa bài viết trên Blogspot:
+      </p>
+      <div class="melli-pass-input-row">
+        <input type="text" id="pass-input" class="melli-pass-input" placeholder="Nhập đáp án (ví dụ: laclac, 98, matcha)..." />
+        <button onclick="checkPass()" class="melli-pass-btn">Kiểm tra</button>
+      </div>
+      <div id="pass-result" style="font-size: 13px; margin-top: 12px; font-weight: 600; display: none;"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="melli-footer">
+      <div style="margin-bottom: 10px;">
+        <a href="https://facebook.com" target="_blank" style="color: #e11d48; text-decoration: none; margin: 0 8px; font-weight: 600;">Facebook</a> •
+        <a href="https://wordpress.com" target="_blank" style="color: #e11d48; text-decoration: none; margin: 0 8px; font-weight: 600;">WordPress</a> •
+        <a href="https://wattpad.com" target="_blank" style="color: #e11d48; text-decoration: none; margin: 0 8px; font-weight: 600;">Wattpad</a>
+      </div>
+      <div>© 2026 better and better - Mellifluous. Bản chuyển ngữ phi thương mại.</div>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('melli_theme', next);
+      var btn = document.getElementById('theme-btn');
+      if (btn) btn.innerText = next === 'dark' ? '☀️ Chế độ sáng' : '🌙 Chế độ tối';
+    }
+
+    (function initTheme() {
+      var saved = localStorage.getItem('melli_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+      var btn = document.getElementById('theme-btn');
+      if (btn) btn.innerText = saved === 'dark' ? '☀️ Chế độ sáng' : '🌙 Chế độ tối';
+    })();
+
+    function checkPass() {
+      var input = document.getElementById('pass-input');
+      var res = document.getElementById('pass-result');
+      if (!input || !res) return;
+      var val = input.value.trim().toLowerCase();
+      var valid = ['laclac', '98', 'matcha'];
+      if (!val) {
+        res.style.display = 'block';
+        res.style.color = '#e11d48';
+        res.innerText = 'Vui lòng nhập mật khẩu cậu muốn thử!';
+        return;
+      }
+      res.style.display = 'block';
+      if (valid.indexOf(val) !== -1) {
+        res.style.color = '#16a34a';
+        res.innerText = '🎉 Chính xác rồi! Cậu dùng mật khẩu "' + val + '" để mở bài viết nhé!';
+      } else {
+        res.style.color = '#dc2626';
+        res.innerText = '❌ Chưa đúng rồi! Hãy xem lại câu hỏi gợi ý và lưu ý viết chữ thường không dấu nhé!';
+      }
+    }
+
+    (function initSakura() {
+      var canvas = document.getElementById('sakura-canvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var width = canvas.width = window.innerWidth;
+      var height = canvas.height = window.innerHeight;
+      window.addEventListener('resize', function() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      var petals = [];
+      for (var i = 0; i < 25; i++) {
+        petals.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: Math.random() * 7 + 6,
+          speedY: Math.random() * 1.2 + 0.8,
+          speedX: Math.random() * 0.8 - 0.4,
+          angle: Math.random() * 360,
+          spin: Math.random() * 2 - 1,
+          alpha: Math.random() * 0.5 + 0.3
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        for (var i = 0; i < petals.length; i++) {
+          var p = petals[i];
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.angle * Math.PI) / 180);
+          ctx.beginPath();
+          ctx.fillStyle = 'rgba(251, 207, 232, ' + p.alpha + ')';
+          ctx.ellipse(0, 0, p.size, p.size / 2, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+
+          p.y += p.speedY;
+          p.x += p.speedX;
+          p.angle += p.spin;
+          if (p.y > height) { p.y = -10; p.x = Math.random() * width; }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+</body>
+</html>
